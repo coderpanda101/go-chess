@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go-chessboard/chessboard"
 )
 
@@ -19,60 +20,13 @@ import (
 
 func main() {
 
-	board := make(map[string]map[int]chessboard.Piece)
+	// Get new chessboard
+	board := chessboard.GetNewChessBoard()
+	fmt.Println(board)
 
-	board["a"] = map[int]chessboard.Piece{
-		1: {Kind: "rook", Color: "white"},
-		2: {Kind: "pawn", Color: "white"},
-		3: {Kind: "", Color: ""},
-		4: {Kind: "", Color: ""},
-		5: {Kind: "", Color: ""},
-		6: {Kind: "", Color: ""},
-		7: {Kind: "pawn", Color: "black"},
-		8: {Kind: "rook", Color: "black"},
-	}
-	board["b"] = map[int]chessboard.Piece{
-		1: {Kind: "knight", Color: "white"},
-		2: {Kind: "pawn", Color: "white"},
-		3: {Kind: "", Color: ""},
-		4: {Kind: "", Color: ""},
-		5: {Kind: "", Color: ""},
-		6: {Kind: "", Color: ""},
-		7: {Kind: "pawn", Color: "black"},
-		8: {Kind: "knight", Color: "black"},
-	}
-	board["c"] = map[int]chessboard.Piece{
-		1: {Kind: "bishop", Color: "white"},
-		2: {Kind: "pawn", Color: "white"},
-		3: {Kind: "", Color: ""},
-		4: {Kind: "", Color: ""},
-		5: {Kind: "", Color: ""},
-		6: {Kind: "", Color: ""},
-		7: {Kind: "pawn", Color: "black"},
-		8: {Kind: "bishop", Color: "black"},
-	}
-	board["d"] = map[int]chessboard.Piece{
-		1: {Kind: "queen", Color: "white"},
-		2: {Kind: "pawn", Color: "white"},
-		3: {Kind: "", Color: ""},
-		4: {Kind: "", Color: ""},
-		5: {Kind: "", Color: ""},
-		6: {Kind: "", Color: ""},
-		7: {Kind: "pawn", Color: "black"},
-		8: {Kind: "queen", Color: "black"},
-	}
-	board["e"] = map[int]chessboard.Piece{
-		1: {Kind: "king", Color: "white"},
-		2: {Kind: "pawn", Color: "white"},
-		3: {Kind: "", Color: ""},
-		4: {Kind: "", Color: ""},
-		5: {Kind: "", Color: ""},
-		6: {Kind: "", Color: ""},
-		7: {Kind: "pawn", Color: "black"},
-		8: {Kind: "king", Color: "black"},
-	}
-	board["f"] = board["c"]
-	board["g"] = board["b"]
-	board["h"] = board["a"]
+	piece := board.CHESSBOARD["A"][2]
+
+	abc := piece.MovePawn(2)
+	fmt.Println(abc, "\n", board)
 
 }
